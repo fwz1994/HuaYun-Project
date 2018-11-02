@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.Naddress">
+
+    <!--  新增收货地址  -->
+    <insert id="AddByAddress" parameterType="Naddress">
+        insert into naddress
+        values
+        (#{nid},#{nuid},#{nname},#{nphone},#{nsheng},#{nshi},#{nqu},#{ndetail},#{npostcode},#{nxianshi})
+    </insert>
+
+
+
+
+</mapper>    

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.GoodsDao">
+
+    <!-- 显示全部商品信息 -->
+    <select id="GetAll" resultType="Goods">
+        select * from goods where gxianshi = 0
+    </select>
+
+</mapper>    
