@@ -4,8 +4,21 @@
 <mapper namespace="cn.dao.GoodsDao">
 
     <!-- 显示全部商品信息 -->
-    <select id="GetAll" resultType="Goods">
+    <select id="getAllByGoods" resultType="Goods">
         select * from goods where gxianshi = 0
     </select>
+    <!--搜索-->
+    <select id="getFuzzyByGoods" resultType="Goods" parameterType="String">
+          select gname,gprice,gsales,gimage1 from goods = 0
+        <trim prefix="where"  prefixOverrides="and">
+            <if test="gname != null ">
+                and  gname like concat(concat('%', #{gname}), '%')
+            </if>
+        </trim>
+    </select>
 
+  <!--  首页分类-->
+    <select id="getTypeByGoods"  resultType="Goods" parameterType="int">
+        select * from goods where gtype = #{gtype}
+    </select>
 </mapper>    

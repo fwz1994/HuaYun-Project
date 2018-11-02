@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 常帅
-  Date: 2018/10/27
-  Time: 13:36
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
     String path = request.getContextPath();
