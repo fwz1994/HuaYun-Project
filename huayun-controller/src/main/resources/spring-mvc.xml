@@ -63,13 +63,13 @@
 	</bean>
 
 	<!--全局异常 -->
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.RuntimeException">404error</prop>
 			</props>
 		</property>
-	</bean>
+	</bean>-->
 
 
 
