@@ -25,4 +25,13 @@ public interface CollectDao {
      */
  /*   Goods getCollerByGood(@Param("gid") Integer gid);*/
 
+    /**
+     * 删除收藏
+     * @param cid 商品id
+     * @return
+     */
+    int updaColler(@Param("cid") Integer cid);
+
+
+
 }
