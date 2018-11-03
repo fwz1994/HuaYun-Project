@@ -27,11 +27,19 @@ public interface CollectDao {
 
     /**
      * 删除收藏
-     * @param cid 商品id
+     * @param cyhid 用户id
+     * @param cspid 商品id
      * @return
      */
-    int updaColler(@Param("cid") Integer cid);
+    int updaColler(@Param("cyhid") Integer cyhid , @Param("cspid") Integer cspid);
 
 
+    /**
+     * 新增收藏
+     * @param cyhid 用户id
+     * @param cspid 商品id
+     * @return
+     */
+    int insColler(@Param("cyhid") Integer cyhid , @Param("cspid") Integer cspid);
 
 }

@@ -32,4 +32,19 @@ public class CollectController {
         String a =cc.addCollect(pid);
         return a;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/updCollect")
+    @ApiOperation(value="删除收藏",httpMethod="GET",notes="数据库删除收藏")
+    public String upCollect(@RequestParam("cyhid") int cyhid,@RequestParam("cspid") int cspid){
+        String b = cc.updCollect(cyhid,cspid);
+        return b;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/indCollect")
+    @ApiOperation(value="增加收藏",httpMethod="GET",notes="数据库增加收藏")
+    public String insCollect(@RequestParam("cyhid") int cyhid,@RequestParam("cspid") int cspid){
+        String c = cc.insCollect(cyhid,cspid);
+        return c;
+    }
 }

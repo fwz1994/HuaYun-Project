@@ -11,4 +11,11 @@
     <select id="getCollerByGood" resultType="Goods" parameterType="int">
         select * from goods where gid=#{gid}
     </select>-->
+    <!-- 删除收藏 -->
+    <update id="updaColler" parameterType="Collect">
+        update collect set csczt=1 where cyhid=#{cyhid} and cspid=#{cspid}
+    </update>
+    <insert id="insColler" parameterType="Collect">
+        insert into collect(cyhid,cspid) values(#{cyhid},#{cspid})
+    </insert>
 </mapper>

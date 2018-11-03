@@ -41,4 +41,34 @@ public class CollectServiceImpl implements CollectService {
 
         return collect;
     }
+    @Transactional
+    @Override
+    public String updCollect(Integer cyhid, Integer cspid) {
+        String updCollect = null;
+        int  csc = cl.updaColler(cyhid,cspid);
+        if(csc == 0){
+            updCollect =  "删除收藏失败";
+        }else{
+            updCollect = "删除收藏成功";
+        }
+        return updCollect;
+    }
+    @Transactional
+    @Override
+    public String insCollect(Integer cyhid, Integer cspid) {
+        String indCollect = null;
+        int ind = cl.insColler(cyhid,cspid);
+        if(cspid != null){
+            if(ind ==0){
+                indCollect = "收藏失败,请查看是否点击错误";
+            }else{
+                indCollect = "收藏成功,请在收藏商品查看";
+            }
+
+        }else{
+            indCollect = "无此商品,请点击查看商品是否存在";
+        }
+        return indCollect;
+    }
+
 }

@@ -10,4 +10,20 @@ public interface CollectService {
      * @return
      */
     String addCollect(Integer pid);
+
+    /**
+     * 删除收藏商品
+     * @param cyhid 用户id
+     * @param cspid 商品id
+     * @return
+     */
+    String updCollect(Integer cyhid , Integer cspid);
+
+    /**
+     * 收藏商品
+     * @param cyhid 用户id
+     * @param cspid 商品id
+     * @return
+     */
+    String insCollect(Integer cyhid, Integer cspid);
 }
