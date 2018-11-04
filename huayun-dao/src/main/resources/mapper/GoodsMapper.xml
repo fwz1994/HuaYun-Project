@@ -9,16 +9,56 @@
     </select>
     <!--搜索-->
     <select id="getFuzzyByGoods" resultType="Goods" parameterType="String">
-          select gname,gprice,gsales,gimage1 from goods = 0
-        <trim prefix="where"  prefixOverrides="and">
-            <if test="gname != null ">
-                and  gname like concat(concat('%', #{gname}), '%')
-            </if>
-        </trim>
+          select gname,gprice,gsales,gimage1 from goods where gname like concat(concat('%', #{gname}), '%')
     </select>
 
   <!--  首页分类-->
     <select id="getTypeByGoods"  resultType="Goods" parameterType="int">
         select * from goods where gtype = #{gtype}
     </select>
-</mapper>    
+    <!--分页-->
+    <select id="getAllType" resultType="Goods">
+        select gid,gname from goods
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="gid != null">
+                and gid=#{gid}
+            </if>
+            <if test="gname != null">
+                and gname=#{gname}
+            </if>
+        </trim>
+    </select>
+
+    <!--商品详情-->
+    <select id="getIDByGoodsAndDetail" resultMap="gs" parameterType ="int" >
+       select * from goods g ,details d where g.gdescribe = d.did and g.gid = #{gid}
+    </select>
+    <resultMap  type="Goods" id="gs">
+        <result column="gid" property="gid"/>
+        <result column="gname" property="gname"/>
+        <result column="gprice" property="gprice"/>
+        <result column="gtype" property="gtype"/>
+        <result column="gsales" property="gsales"/>
+        <result column="gstock" property="gstock"/>
+        <result column="gdescribe" property="gdescribe"/>
+        <result column="gimage1" property="gimage1"/>
+        <result column="gimage2" property="gimage2"/>
+        <result column="gimage3" property="gimage3"/>
+        <result column="gcollect" property="gcollect"/>
+        <result column="gding" property="gding"/>
+        <result column="gxianshi" property="gxianshi"/>
+        <association property ="d"  javaType = "Details">
+            <result column = "did"  property = "did" />
+            <result column = "dcolourtype"  property = "dcolourtype" />
+            <result column = "dscene"  property = "dscene" />
+            <result column = "dflowers"  property = "dflowers" />
+            <result column = "dobject"  property = "dobject" />
+            <result column = "damount"  property = "damount" />
+            <result column = "dprogram"  property = "dprogram" />
+            <result column = "dacessorial"  property = "dacessorial" />
+            <result column = "dimage"  property = "dimage" />
+            <result column = "dcraft"  property = "dcraft" />
+            <result column = "dstandard"  property = "dstandard" />
+        </association>
+    </resultMap>
+</mapper>

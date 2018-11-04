@@ -13,8 +13,10 @@ public class Naddress {
   private String nshi;        //市
   private String nqu;         //区
   private String ndetail;     //详细地址
-  private Integer npostcode;  //邮政编号
+  private String npostcode;  //邮政编号
   private Integer nxianshi;   //地址显示状态
+  private Integer ndefault;   //默认地址
+
 
   public Integer getNid() {
     return nid;
@@ -80,19 +82,27 @@ public class Naddress {
     this.ndetail = ndetail;
   }
 
-  public Integer getNpostcode() {
-    return npostcode;
-  }
-
-  public void setNpostcode(Integer npostcode) {
-    this.npostcode = npostcode;
-  }
-
   public Integer getNxianshi() {
     return nxianshi;
   }
 
   public void setNxianshi(Integer nxianshi) {
     this.nxianshi = nxianshi;
+  }
+
+  public String getNpostcode() {
+    return npostcode;
+  }
+
+  public void setNpostcode(String npostcode) {
+    this.npostcode = npostcode;
+  }
+
+  public Integer getNdefault() {
+    return ndefault;
+  }
+
+  public void setNdefault(Integer ndefault) {
+    this.ndefault = ndefault;
   }
 }

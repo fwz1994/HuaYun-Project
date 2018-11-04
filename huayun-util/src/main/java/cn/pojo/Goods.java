@@ -16,9 +16,13 @@ public class Goods {
   private Integer gcollect;
   private Integer gding;
   private Integer gxianshi;
-
-
-
+  private Details d;
+  public Details getD() {
+    return d;
+  }
+  public void setD(Details d) {
+    this.d = d;
+  }
 
   public Integer getGid() {
     return gid;

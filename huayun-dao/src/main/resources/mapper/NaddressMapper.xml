@@ -1,16 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.dao.Naddress">
+<mapper namespace="cn.dao.NaddressDao">
+
+    <!--  查询全部收货地址  -->
+    <select id="getAllByNaddress" resultType="Naddress" parameterType="int">
+        select nname,nphone,nsheng,nshi,nqu,ndetail,npostcode from naddress where nuid=#{nuid} and nxianshi=0
+    </select>
 
     <!--  新增收货地址  -->
-    <insert id="AddByAddress" parameterType="Naddress">
-        insert into naddress
-        values
-        (#{nid},#{nuid},#{nname},#{nphone},#{nsheng},#{nshi},#{nqu},#{ndetail},#{npostcode},#{nxianshi})
+    <insert id="addByAddress" parameterType="Naddress">
+        insert into naddress values (0,#{nuid},#{nname},#{nphone},#{nsheng},#{nshi},#{nqu},#{ndetail},#{npostcode},0,#{ndefault})
     </insert>
 
+    <!--  编辑更改收货地址  -->
+    <update id="updateByAddress" parameterType="Naddress">
+        update naddress
+        <trim prefix="set" suffixOverrides="," suffix="where nid=#{nid} ">
+            <if test="nname != null and nname != ''">
+                nname = #{nname} ,
+            </if>
+            <if test="nphone != null and nphone != ''">
+                nphone = #{nphone} ,
+            </if>
+            <if test="nsheng != null and nsheng != ''">
+                nsheng = #{nsheng} ,
+            </if>
+            <if test="nshi != null and nshi != ''">
+                nshi = #{nshi} ,
+            </if>
+            <if test="nqu != null and nqu != ''">
+                nqu = #{nqu} ,
+            </if>
+            <if test="nshi != null and nshi != ''">
+                nshi = #{nshi} ,
+            </if>
+                <if test="ndetail != null and ndetail != ''">
+                ndetail = #{ndetail} ,
+            </if>
+            <if test="npostcode != null and npostcode != ''">
+                npostcode = #{npostcode} ,
+            </if>
+        </trim>
+    </update>
 
+    <!--  编辑删除收货地址  -->
+    <update id="updateByIDAddress">
+        update naddress set nxianshi=1 where nid=#{nid} and nuid=#{nuid}
+    </update>
+
+    <!--  更改默认地址(成为默认地址)  -->
+    <update id="updateByndefaultM">
+        update naddress set ndefault=0  where nid=#{nid} and nuid=#{nuid}
+    </update>
+
+    <!--  更改默认地址(成为不默认地址)  -->
+    <update id="updateByndefaultB">
+        update naddress set ndefault=1  where nid=#{nid} and nuid=#{nuid}
+    </update>
+
+    <!--查询收货地址的数量-->
+    <select id="countByNaddress" resultType="int" parameterType="int">
+        select count(1) from naddress where nuid=#{nuid}
+    </select>
 
 
 </mapper>    

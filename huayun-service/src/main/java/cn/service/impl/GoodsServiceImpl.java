@@ -4,6 +4,8 @@ import cn.dao.GoodsDao;
 import cn.pojo.Goods;
 import cn.service.GoodsService;
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +43,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Transactional
     public String getFuzzyByGoods(String gname) {
-        if(gname != null ){
+        if (gname != null){
             List<Goods> fuzzyByGoods = gd.getFuzzyByGoods(gname);
             String jsonStringFuzzy = JSON.toJSONString(fuzzyByGoods);
             return jsonStringFuzzy;
@@ -52,7 +54,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /**
-     *
+     *首页（分类）
      * @param gtype
      * @return
      */
@@ -63,10 +65,39 @@ public class GoodsServiceImpl implements GoodsService {
             String jsonStringType = JSON.toJSONString(typeByGoods);
             return jsonStringType;
         }else{
-            return null;
+            return "请重新点击";
         }
 
     }
 
+    /**
+     * 商品详情
+     * @param gid
+     * @return
+     */
+    @Transactional
+    public String getIDByGoodsAndDetail(Integer gid) {
+        if (gid != null){
+            List<Goods> idByGoodsAndDetail = gd.getIDByGoodsAndDetail(gid);
+            String jsonStringId = JSON.toJSONString(idByGoodsAndDetail);
+            return jsonStringId;
+        }else{
+            return "你没进行任何操作";
+        }
+    }
 
+    /**
+     * 分页
+     * @param index 起始页数
+     * @param pagesize 每页显示条数
+     * @return
+     */
+    @Transactional
+    @Override
+    public String getPageByIndex(Integer index, Integer pagesize) {
+        PageHelper.startPage(index,pagesize);
+        List<Goods> typeForms = gd.getAllType(null);
+        PageInfo<Goods> goods = new PageInfo<Goods>(typeForms);
+        return JSON.toJSONString(goods);
+    }
 }
