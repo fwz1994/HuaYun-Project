@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.OrderDao">
+
+    <!-- 新增订单 -->
+    <insert id="addByOrder" parameterType="Order">
+        insert into `order` values (0,#{ouid},#{obianhao},#{otitle},#{odate},#{ostate},0,#{opayment},#{ocoupon},#{ofreight},#{ocontact},#{omessage},#{otime},#{oremark},#{obuy})
+    </insert>
+
+    <!--
+        删除订单：
+        oxianshi    0显示1隐藏
+        oid     订单ID
+        ouid    用户ID
+    -->
+    <update id="delectByID">
+        update `order` set oxianshi=1 where oid=#{oid} and ouid=#{ouid}
+    </update>
+
+    <!--
+        分类显示订单：1待付款，2待发货，3待收货，4已完成，5售后
+        ouid      用户ID
+        ostate    1待付款，2待发货，3待收货，4已完成，5售后
+        oxianshi    0显示1隐藏
+      -->
+    <select id="sortAllByOrder" resultType="Order">
+        select * from `order` where  oxianshi=0 and ouid=#{ouid} and ostate=#{ostate}
+    </select>
+
+    <!--
+        根据订单状态分类显示订单数目
+        ouid      用户ID
+        ostate    1待付款，2待发货，3待收货，4已完成，5售后
+        oxianshi    0显示1隐藏
+    -->
+    <select id="sortAllByCount" resultType="int">
+        select count(1) from `order` where oxianshi=0 and ouid=#{ouid} and ostate=#{ostate}
+    </select>
+
+
+
+</mapper>    
