@@ -19,13 +19,6 @@ public interface CollectDao {
     List<Collect> getAllByColler(@Param("cyhid")Integer cyhid);
 
     /**
-     * 按收藏查询商品id
-     * @param gid
-     * @return
-     */
- /*   Goods getCollerByGood(@Param("gid") Integer gid);*/
-
-    /**
      * 删除收藏
      * @param cyhid 用户id
      * @param cspid 商品id
