@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HuaYun-Project.iml" filepath="$PROJECT_DIR$/HuaYun-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huayun-controller/huayun-controller.iml" filepath="$PROJECT_DIR$/huayun-controller/huayun-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huayun-dao/huayun-dao.iml" filepath="$PROJECT_DIR$/huayun-dao/huayun-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huayun-service/huayun-service.iml" filepath="$PROJECT_DIR$/huayun-service/huayun-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huayun-util/huayun-util.iml" filepath="$PROJECT_DIR$/huayun-util/huayun-util.iml" />
+    </modules>
+  </component>
+</project>

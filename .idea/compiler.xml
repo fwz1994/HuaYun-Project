@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="huayun-controller" />
+        <module name="huayun-dao" />
+        <module name="huayun-service" />
+        <module name="huayun-util" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="huayun-controller" target="1.7" />
+      <module name="huayun-dao" target="1.5" />
+      <module name="HuaYun-Project" target="1.5" />
+      <module name="huayun-service" target="6" />
+      <module name="huayun-util" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
