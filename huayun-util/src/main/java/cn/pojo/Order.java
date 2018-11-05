@@ -20,6 +20,24 @@ public class Order {
   private String otime;         //配送日期
   private String oremark;     //备注
   private Integer obuy;       //付款状态：0付款1未付款
+  private Integer omoney;       //订单金额
+  private  Integer ogid;        //订单商品
+
+  public Integer getOmoney() {
+    return omoney;
+  }
+
+  public void setOmoney(Integer omoney) {
+    this.omoney = omoney;
+  }
+
+  public Integer getOgid() {
+    return ogid;
+  }
+
+  public void setOgid(Integer ogid) {
+    this.ogid = ogid;
+  }
 
   public Integer getOid() {
     return oid;

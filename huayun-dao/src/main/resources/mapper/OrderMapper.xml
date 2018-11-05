@@ -5,7 +5,7 @@
 
     <!-- 新增订单 -->
     <insert id="addByOrder" parameterType="Order">
-        insert into `order` values (0,#{ouid},#{obianhao},#{otitle},#{odate},#{ostate},0,#{opayment},#{ocoupon},#{ofreight},#{ocontact},#{omessage},#{otime},#{oremark},#{obuy})
+        insert into `order` values (0,#{ouid},#{obianhao},#{otitle},#{odate},#{ostate},0,#{opayment},#{ocoupon},#{ofreight},#{ocontact},#{omessage},#{otime},#{oremark},#{obuy},#{omoney},#{ogid})
     </insert>
 
     <!--
