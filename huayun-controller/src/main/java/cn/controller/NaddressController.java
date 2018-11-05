@@ -49,7 +49,7 @@ public class NaddressController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/updateByAddress")
+    @RequestMapping(value = "/updateByAddress/{na}")
     @ApiOperation(value="编辑更改收货地址",httpMethod="POST",notes="Szy")
     public String updateByAddress(Naddress na){
         String updateByAddress = naddressService.updateByAddress(na);
