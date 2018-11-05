@@ -34,17 +34,17 @@ public class GoodsController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/getfuzzy")
+    @RequestMapping(value = "/getfuzzy/{gname}")
     @ApiOperation(value="搜索（模糊查询）",httpMethod="POST",notes="数据库查询商品表（商品名称）")
-    public String getfuzzyController(@RequestParam("gname") String gname){
+    public String getfuzzyController(@PathVariable("gname") String gname){
         String fuzzyByGoods = gs.getFuzzyByGoods(gname);
         return fuzzyByGoods;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/gettype")
+    @RequestMapping(value = "/gettype/{gtype}")
     @ApiOperation(value="首页（分类查询）",httpMethod="POST",notes="数据库查询商品表（商品类型）")
-    public String getTypeController(@RequestParam("gtype") Integer gtype){
+    public String getTypeController(@PathVariable("gtype") Integer gtype){
         String typeByGoods = gs.getTypeByGoods(gtype);
         return typeByGoods;
     }
