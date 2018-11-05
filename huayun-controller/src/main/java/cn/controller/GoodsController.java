@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping(value="/goods")
-@Api(value = "goods",description="测试接口描述")
+@Api(value = "goods",description="商品展示")
 public class GoodsController {
     /*
      * @ApiOperation(value = "接口说明", httpMethod ="接口请求方式", response ="接口返回参数类型", notes ="接口发布说明"
@@ -49,12 +49,10 @@ public class GoodsController {
         return typeByGoods;
     }
 
-    /**
-     * 分页
-     * @return
-     */
+
     @ResponseBody
     @RequestMapping("/all")
+    @ApiOperation(value="首页（分页）",httpMethod="POST",notes="数据库查询商品表")
     public String fenye(){
         return gs.getPageByIndex(1,2);
     }

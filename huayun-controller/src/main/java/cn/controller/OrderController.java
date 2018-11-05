@@ -18,7 +18,13 @@ public class OrderController {
 
     @Autowired
     private OrderService ordersv;
+    public OrderService getOrdersv() {
+        return ordersv;
+    }
 
+    public void setOrdersv(OrderService ordersv) {
+        this.ordersv = ordersv;
+    }
 
     @ResponseBody
     @RequestMapping(value = "/addByOrder")
